@@ -63,23 +63,35 @@ render:  function() {
       listElement.textContent = `${hours[i]} ${cookiesEachHour[i]}`; //Replace Cookies: 34; with cookiesEachHour[i];
       //append to DO
       seattleElement.appendChild(listElement);
-    }
-  }
+    } //Closes For Loop
+  }  //Closes function
+}  //Closes object
+
+function generateCustPerHour() {
+  for(var i = 0; i < hours.length; i++) {
+    var customerCount = randomNumber( this.min, this.max );
+    customersEachHour.push(customerCount);  //Names look wrong; should be generateCustPerHour.push...?
+  } //Closes FOR loop
+  customersEachHour[] = customerCount[];  //Does this correct the above?
+  return customersEachHour[];  //Does this pass the array out of the function and into the corresponding object property?
+}  //Closes function
+
+
+function generateCookiesPerHour() {
+  for(var i = 0; i < hours.length; i++) {
+    var cookieCount = randomNumber( this.min, this.max );
+    cookiesEachHour.push(cookieCount);  //Names look wrong; should be generateCustPerHour.push...?
+  } //Closes FOR loop
+  cookiessEachHour[] = cookieCount[];  //Does this correct the above?
+  return cookiesEachHour[];  //Does this pass the array out of the function and into the corresponding object property?
+}  //Closes function
+
+var randomNumber: function(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min; //Random number generator, inclusive of min. value
 }
 
-  function generateCustPerHour() {
-    for(var i = 0; i < hours.length; i++) {
-      var customerCount = randomCount( this.min, this.max );
-      customersEachHour.push(customerCount);
-    }
-}
 
-  randomNumber: function(minCustomersEachHour, maxCustomersEachHour) {
-    return Math.floor(Math.random() * (maxCustomersEachHour - minCustomersEachHour)) + minCustomersEachHour;
-  }
-};
-
-// firstAndPikeShop.render();
+seattle.render(23, 65);
 }
 
 var storeTokyo = {
