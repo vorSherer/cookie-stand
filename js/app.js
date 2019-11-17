@@ -12,15 +12,33 @@ var hours = ['0600', '0700', '0800', '0900', '1000', '1100', '1200', '1300', '14
 //Space on DOM to store data
 var storeSales = document.getElementById('stores');
 
-//Store object 1
-var storeSeattle = {
-  storeName: 'Seattle',
-  minCustomersEachHour: 23,
-  maxCustomersEachHour: 65,
-  averageCookiesPerCustomer: 6.3,
-  customersEachHourArray: [],
-  cookiesSoldEachHourArray: [],
-  totalCookiesForTheDayTotalizer: 0,
+//----------------------------------------------------------------------------------
+var storeLoc = [];
+
+//Store Constructor
+function CookieShop (location, minCust, maxCust, cookieAvg) {
+  this.location = location;
+  this.minCustEachHour = minCustEachHour;
+  this.maxCustEachHour = maxCustEachHour;
+  this.cookieAvg = cookieAvg;
+  this.custPerHourArray = custPerHourArray[];
+  this.cookiesSoldPerHourArray = cookiesSoldPerHourArray[];
+  this.totalDailyCookiesTotalizer = totalDailyCookiesTotalizer;
+
+  storeLoc.push(this);
+}
+
+
+var seattle = new CookieShop ('Seattle', 23, 65, 6.3);
+//----------------------------------------------------------------------------------
+// var storeSeattle = {
+  // storeName: 'Seattle',
+  // minCustomersEachHour: 23,
+  // maxCustomersEachHour: 65,
+  // averageCookiesPerCustomer: 6.3,
+  // customersEachHourArray: [],
+  // cookiesSoldEachHourArray: [],
+  // totalCookiesForTheDayTotalizer: 0,
 
   //Customers per hour generator method:
   generateCustPerHour: function() {
