@@ -15,7 +15,15 @@ Include all of the typical stuff that you’ll find on the home page of a busine
      Be creative, and again, think about what is meaningful to a typical end user. */
 
 body {
+    background-color: silver;
+    margin: 20px;
+}
+
+header {
     background-color: rgba(250, 128, 114, 0.459);
     font: Times;
 }
 
+footer (
+    
+)
