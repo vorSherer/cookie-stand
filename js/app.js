@@ -55,6 +55,7 @@ new CookieShop ('Tokyo', 3, 24, 1.2);
 new CookieShop ('Dubai', 11, 38, 3.7);
 new CookieShop ('Paris', 20, 38, 2.3);
 new CookieShop ('Lima', 2, 16, 4.6);
+// new CookieShop ('San Francisco', 27, 60, 4.2);
 
 //Random number generator - generates a value between min and max, inclusive of min and max
 function getRandom(min, max) {
@@ -102,32 +103,32 @@ CookieShop.prototype.renderShopRow = function() {
   }
 
   // Add site Totals column
-  var thElem = document.createElement('th');
-  thElem.textContent = this.totalDailyCookiesTotalizer;
-  trEl.appendChild(thElem);
+  var tdElem = document.createElement('td');
+  tdElem.textContent = this.totalDailyCookiesTotalizer;
+  trEl.appendChild(tdElem);
   storeSalesTable.appendChild(trEl);
 };
 
 //Add footer row with hourly totals (in bold)
 var renderFooterRow = function() {
   var trEl = document.createElement('tr');
-  var thEl = document.createElement('th');
-  thEl.textContent = 'Hourly Totals: ';
-  trEl.appendChild(thEl);
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'Hourly Totals: ';
+  trEl.appendChild(tdEl);
   
   for( var i = 0; i < hours.length; i++ ) {
     var hourlyTotalsByStore = 0;
-    var thEl = document.createElement('th');
+    var tdEl = document.createElement('td');
     
     for( var j = 0; j < storeLoc.length; j++ ) {
       hourlyTotalsByStore += storeLoc[j].cookiesSoldPerHourArray[i];
     }
-    thEl.textContent = hourlyTotalsByStore;
-    trEl.appendChild(thEl);
+    tdEl.textContent = hourlyTotalsByStore;
+    trEl.appendChild(tdEl);
   }
-  var thElem = document.createElement('th');
-  thElem.textContent = siteTotals;
-  trEl.appendChild(thElem);
+  var tdElem = document.createElement('td');
+  tdElem.textContent = siteTotals;
+  trEl.appendChild(tdElem);
   storeSalesTable.appendChild(trEl);
 };
 
