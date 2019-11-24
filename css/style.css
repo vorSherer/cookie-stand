@@ -24,6 +24,19 @@ header {
     font: Times;
 }
 
-footer (
-    
-)
+#salmon-border {
+    background-image: url("../img/tiny-salmon.png");
+    height: 50px;
+    background-repeat: repeat-x;
+}
+
+/* footer (
+
+    ) */
+
+#reverse-salmon-border {
+    background-image: url("../img/tiny-chinook.png");
+    height: 50px;
+    background-repeat: repeat-x;
+}
+

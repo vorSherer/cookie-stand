@@ -13,3 +13,6 @@ Began building form.
 
 Tutoring (Major) assistance by Erin Trainor (Thank you, Erin, I was looking for bread crumbs out there...).
 
+Home Page assets;
+https://resizeimage.net/
+https://tunaipsum.com/
