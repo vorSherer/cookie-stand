@@ -7,8 +7,9 @@ var hours = ['0600', '0700', '0800', '0900', '1000', '1100', '1200', '1300', '14
 // Create & initialize Site Totalizer
 var siteTotals = 0;
 
-//Space on DOM to store data
+//Variables for Table and Form
 var storeSalesTable = document.getElementById('storesTable');
+var form = document.getElementById('addLocation');
 // Site location array
 var storeLoc = [];
 
@@ -49,14 +50,6 @@ CookieShop.prototype.calculateCookieCount = function() {
   } //Closes FOR loop
 }; //Closes cookies/hr method
 
-//Populating the initial sites
-new CookieShop ('Seattle', 23, 65, 6.3);
-new CookieShop ('Tokyo', 3, 24, 1.2);
-new CookieShop ('Dubai', 11, 38, 3.7);
-new CookieShop ('Paris', 20, 38, 2.3);
-new CookieShop ('Lima', 2, 16, 4.6);
-// new CookieShop ('San Francisco', 27, 60, 4.2);
-
 //Random number generator - generates a value between min and max, inclusive of min and max
 function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min +1)) + min;
@@ -71,7 +64,7 @@ var renderTableHeaderRow = function() {
   thEl.textContent = 'Location';
   // Append the elements to the DOM
   trEl.appendChild(thEl);
-
+  
   for( var i = 0; i < hours.length; i++) {
     thEl = document.createElement('th');
     thEl.textContent = hours[i];
@@ -94,14 +87,14 @@ CookieShop.prototype.renderShopRow = function() {
   var thEl = document.createElement('th');
   thEl.textContent = this.location;
   trEl.appendChild(thEl);
-
+  
   //Populating the table with simulated site data
   for( var i = 0; i < hours.length; i++ ) {
     var tdEl = document.createElement('td');
     tdEl.textContent = this.cookiesSoldPerHourArray[i];
     trEl.appendChild(tdEl);
   }
-
+  
   // Add site Totals column
   var tdElem = document.createElement('td');
   tdElem.textContent = this.totalDailyCookiesTotalizer;
@@ -118,7 +111,7 @@ var renderFooterRow = function() {
   
   for( var i = 0; i < hours.length; i++ ) {
     var hourlyTotalsByStore = 0;
-    var tdEl = document.createElement('td');
+    tdEl = document.createElement('td');
     
     for( var j = 0; j < storeLoc.length; j++ ) {
       hourlyTotalsByStore += storeLoc[j].cookiesSoldPerHourArray[i];
@@ -132,9 +125,31 @@ var renderFooterRow = function() {
   storeSalesTable.appendChild(trEl);
 };
 
-//Calling the functions to render Final table for all sites
-renderTableHeaderRow();
-for( var i = 0; i < storeLoc.length; i++) {
-  storeLoc[i].renderShopRow();
+//Form controls section
+function handleForm(event) {
+  event.preventDefault();    //Always use this first when staying on the same page
+  console.log('event: ', event);
+  var newLocation = event.target.location.value;
+  var newMin = event.target.minCustEachHour.value;
+  var newMax = event.target.maxCustEachHour.value;
+  var newAvg = event.target.cookieAvg.value;
+} 
+
+//Populating the initial sites
+function initPage() {
+  new CookieShop ('Seattle', 23, 65, 6.3);
+  new CookieShop ('Tokyo', 3, 24, 1.2);
+  new CookieShop ('Dubai', 11, 38, 3.7);
+  new CookieShop ('Paris', 20, 38, 2.3);
+  new CookieShop ('Lima', 2, 16, 4.6);
+  // new CookieShop ('San Francisco', 27, 60, 4.2);
+  //Calling the functions to render Final table for all sites
+  renderTableHeaderRow();
+  for( var i = 0; i < storeLoc.length; i++) {
+    storeLoc[i].renderShopRow();
+  }
+  renderFooterRow();
+  form.addEventListener('submit', handleForm);
 }
-renderFooterRow();
+
+initPage();
