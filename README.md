@@ -10,3 +10,6 @@ This is the Code Fellows '__*Salmon Cookies*__' Project, a learning tool.
 
 **Execution**
 Began building form.
+
+Tutoring (Major) assistance by Erin Trainor (Thank you, Erin, I was looking for bread crumbs out there...).
+

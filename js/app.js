@@ -125,14 +125,27 @@ var renderFooterRow = function() {
   storeSalesTable.appendChild(trEl);
 };
 
+//Kill Footer Row Helper Function
+function killFooter() {
+  var footer = storeSalesTable.lastChild;
+  footer.remove();
+}
+
 //Form controls section
 function handleForm(event) {
   event.preventDefault();    //Always use this first when staying on the same page
   console.log('event: ', event);
   var newLocation = event.target.location.value;
-  var newMin = event.target.minCustEachHour.value;
-  var newMax = event.target.maxCustEachHour.value;
-  var newAvg = event.target.cookieAvg.value;
+  var newMin = parseInt(event.target.minCustPerHour.value);
+  var newMax = parseInt(event.target.maxCustPerHour.value);
+  var newAvg = parseFloat(event.target.cookieAvg.value);
+
+  var newStore = new CookieShop (newLocation, newMin, newMax, newAvg);
+  console.log('new site added: ', newStore);
+  killFooter();
+  storeLoc[storeLoc.length -1].renderShopRow();
+  renderFooterRow();
+  form.reset();
 } 
 
 //Populating the initial sites
@@ -143,6 +156,7 @@ function initPage() {
   new CookieShop ('Paris', 20, 38, 2.3);
   new CookieShop ('Lima', 2, 16, 4.6);
   // new CookieShop ('San Francisco', 27, 60, 4.2);
+
   //Calling the functions to render Final table for all sites
   renderTableHeaderRow();
   for( var i = 0; i < storeLoc.length; i++) {
