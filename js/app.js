@@ -142,10 +142,10 @@ function handleForm(event) {
 
   var newStore = new CookieShop (newLocation, newMin, newMax, newAvg);
   console.log('new site added: ', newStore);
-  killFooter();
-  storeLoc[storeLoc.length -1].renderShopRow();
-  renderFooterRow();
-  form.reset();
+  killFooter();              //Deletes the footer row to make way for an additional store row.
+  storeLoc[storeLoc.length -1].renderShopRow();   //Renders the new store row
+  renderFooterRow();         //Creates a new footer row incorporating data from the newly-added store.
+  form.reset();              // Clears the form after entry submission
 } 
 
 //Populating the initial sites
@@ -155,7 +155,7 @@ function initPage() {
   new CookieShop ('Dubai', 11, 38, 3.7);
   new CookieShop ('Paris', 20, 38, 2.3);
   new CookieShop ('Lima', 2, 16, 4.6);
-  // new CookieShop ('San Francisco', 27, 60, 4.2);
+  // new CookieShop ('San Francisco', 27, 60, 4.2);   //Proof of Life entry
 
   //Calling the functions to render Final table for all sites
   renderTableHeaderRow();
@@ -166,4 +166,4 @@ function initPage() {
   form.addEventListener('submit', handleForm);
 }
 
-initPage();
+initPage();    //Initializes the Sales Page

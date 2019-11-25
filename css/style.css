@@ -15,13 +15,13 @@ Include all of the typical stuff that you’ll find on the home page of a busine
      Be creative, and again, think about what is meaningful to a typical end user. */
 
 body {
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(202, 197, 197);
     width: 100%;
 
 }
 
 header {
-    background-color: rgba(250, 128, 114, 0.459);
+    background-color:rgb(247, 152, 141);
     font: Times;
     width: 100%;
 }
@@ -29,10 +29,13 @@ header {
 header>h1 {
     font-family: 'Bangers', cursive;
     font-size: 50px;
+    color: silver;   /* This becomes the fallback color in browsers not supporting webkit */
+	-webkit-text-fill-color: white;  /*This, in supporting browsers, will override the color setting, regardless of order. */
+	-webkit-text-stroke-width: 2px black;
     width: 100%;
     text-align: center;
     padding: 10px 0;
-    color: seashell;
+    /* color: seashell; */
 }
 
 nav {
@@ -57,13 +60,21 @@ nav>ul>li>a {
 
 #salmon-border {
     background-image: url("../img/tiny-salmon.png");
-    height: 50px;
+    height: 35px;
     background-repeat: repeat-x;
 }
 
 main {
     width: 100%;
+    margin: 20px auto;
 }
+
+main > h1 {
+    font-size: larger;
+    font-weight: bolder;
+    color: navy;
+}
+
 
 main > section > h2, footer > h2 {
     font-family: 'Roboto', sans-serif;
@@ -74,7 +85,43 @@ main > section > h2, footer > h2 {
 
 main > section > section > p {
     font-family: serif Georgia, 'Times New Roman', Times, serif;
-    color: rgba(250, 128, 114);
+    color: rgb(214, 99, 87);
+}
+
+main > section > h2 {
+    width: 100%;
+    text-align: left;
+    margin: 10px 10px;
+}
+
+main > section > section > section {
+    width: 100%;
+    float: left;
+}
+
+figure {
+    width: 30%;
+    margin: 10px;
+}
+
+figure > image {
+    width: 100%;
+}
+
+figure > figcaption {
+    width: 100%;
+}
+
+main > table {
+    margin: 30px 30px;
+}
+
+main > table > th {
+    font-weight: bold;
+}
+
+button {
+    margin: 10px;
 }
 
 footer {
@@ -100,7 +147,7 @@ footer > section > section {
 }
 
 footer > p {
-    width:100%;
+    width: 100%;
     text-align: center;
     color: rgb(116, 60, 54);
 
